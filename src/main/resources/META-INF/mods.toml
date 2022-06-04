@@ -1,0 +1,36 @@
+modLoader="javafml"
+loaderVersion="[40,)"
+license="All rights reserved"
+[[mods]]
+modId="playerdifficulty"
+version="${file.jarVersion}" #mandatory
+displayName="Player Difficulty" #mandatory
+logoFile="playerdifficulty.png" #optional
+credits="Thanks for this example mod goes to Java" #optional
+authors="Love, Cheese and small house plants" #optional
+description='''
+'''
+[[dependencies.playerdifficulty]]
+    modId="forge"
+    mandatory=true
+    versionRange="[40.1,)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.playerdifficulty]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.18.2,1.19)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.playerdifficulty]]
+    modId="l2library"
+    mandatory=true
+    versionRange="[0.0.8,)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.playerdifficulty]]
+    modId="scalinghealth"
+    mandatory=false
+    versionRange="[6.2.0,)"
+    ordering="BEFORE"
+    side="BOTH"

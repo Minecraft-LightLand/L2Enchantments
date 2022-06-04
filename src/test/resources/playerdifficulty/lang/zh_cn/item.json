@@ -1,0 +1,33 @@
+{
+  "item.playerdifficulty": {
+	"check": "难度查看器",
+	"up": "难度上升",
+	"down": "难度下降"
+  },
+  "block.playerdifficulty": {
+  },
+  "enchantment.playerdifficulty": {
+	"anti_magic": "破魔",
+	"anti_magic.desc": "概率无视保护附魔和抗性，和魂斩冲突",
+	"fragile": "易碎",
+	"fragile.desc": "降低耐久，提升伤害。和耐久，坚韧冲突",
+	"remnant": "不朽",
+	"remnant.desc": "0耐久也不会消失，只会失去作用",
+	"robust": "坚韧",
+	"robust.desc": "一次受到高耐久损耗时，降低损耗",
+	"soul_slash": "魂斩",
+	"soul_slash.desc": "概率无视护甲，和破魔冲突",
+	"stacking_damage": "反破",
+	"stacking_damage.desc": "当造成的伤害被减免时，下一次伤害增加部分被减免的值，和连击冲突",
+	"tracing_damage": "连击",
+	"tracing_damage.desc": "连续攻击同一实体时，逐步提高伤害，和反破冲突",
+	"light_swing": "轻薄",
+	"light_swing.desc": "提升攻击速度，降低攻击伤害和耐久，和重击冲突",
+	"heavy_swing": "重击",
+	"heavy_swing.desc": "降低攻击速度，提升攻击伤害和耐久，和轻薄冲突",
+	"reach": "触及",
+	"reach.desc": "提升触及距离，对盔甲也有效",
+	"life_sync": "同心",
+	"life_sync.desc": "高生命时以生命修复物品，升级降低修复的生命值下限"
+  }
+}

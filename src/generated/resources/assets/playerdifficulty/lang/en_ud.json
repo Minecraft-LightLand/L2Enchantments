@@ -1,0 +1,14 @@
+{
+  "enchantment.playerdifficulty.anti_magic": "\u0254\u0131b\u0250W \u0131\u0287u\u2C6F",
+  "enchantment.playerdifficulty.fragile": "\u01DD\u05DF\u0131b\u0250\u0279\u2132",
+  "enchantment.playerdifficulty.remnant": "\u0287u\u0250u\u026F\u01DD\u1D1A",
+  "enchantment.playerdifficulty.robust": "\u0287snqo\u1D1A",
+  "enchantment.playerdifficulty.soul_slash": "\u0265s\u0250\u05DFS \u05DFnoS",
+  "enchantment.playerdifficulty.stacking_damage": "\u01DDb\u0250\u026F\u0250\u15E1 bu\u0131\u029E\u0254\u0250\u0287S",
+  "enchantment.playerdifficulty.tracing_damage": "\u01DDb\u0250\u026F\u0250\u15E1 bu\u0131\u0254\u0250\u0279\u27D8",
+  "item.playerdifficulty.check": "\u029E\u0254\u01DD\u0265\u0186",
+  "item.playerdifficulty.down": "u\u028Do\u15E1",
+  "item.playerdifficulty.up": "d\u2229",
+  "itemGroup.playerdifficulty.material": "\u05DF\u0250\u0131\u0279\u01DD\u0287\u0250W",
+  "playerdifficulty.tooltip.difficulty": "%s :\u028E\u0287\u05DFn\u0254\u0131\u025F\u025F\u0131\u15E1"
+}

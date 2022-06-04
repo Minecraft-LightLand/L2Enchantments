@@ -1,0 +1,121 @@
+{
+  "_class": "dev.xkmc.playerdifficulty.content.spawn.ArmorConfig",
+  "items": [
+    {
+      "item": "minecraft:leather_helmet",
+      "level": 10.0,
+      "weight": 100
+    },
+    {
+      "item": "minecraft:leather_chestplate",
+      "level": 10.0,
+      "weight": 100
+    },
+    {
+      "item": "minecraft:leather_leggings",
+      "level": 10.0,
+      "weight": 100
+    },
+    {
+      "item": "minecraft:leather_boots",
+      "level": 10.0,
+      "weight": 100
+    },
+    {
+      "item": "minecraft:iron_helmet",
+      "level": 20.0,
+      "weight": 150
+    },
+    {
+      "item": "minecraft:iron_chestplate",
+      "level": 20.0,
+      "weight": 150
+    },
+    {
+      "item": "minecraft:iron_leggings",
+      "level": 20.0,
+      "weight": 150
+    },
+    {
+      "item": "minecraft:iron_boots",
+      "level": 20.0,
+      "weight": 150
+    },
+    {
+      "item": "minecraft:golden_helmet",
+      "level": 40.0,
+      "weight": 100
+    },
+    {
+      "item": "minecraft:golden_chestplate",
+      "level": 40.0,
+      "weight": 100
+    },
+    {
+      "item": "minecraft:golden_leggings",
+      "level": 40.0,
+      "weight": 100
+    },
+    {
+      "item": "minecraft:golden_boots",
+      "level": 40.0,
+      "weight": 100
+    },
+    {
+      "item": "minecraft:diamond_helmet",
+      "level": 60.0,
+      "weight": 50
+    },
+    {
+      "item": "minecraft:diamond_chestplate",
+      "level": 60.0,
+      "weight": 50
+    },
+    {
+      "item": "minecraft:diamond_leggings",
+      "level": 60.0,
+      "weight": 50
+    },
+    {
+      "item": "minecraft:diamond_boots",
+      "level": 60.0,
+      "weight": 50
+    },
+    {
+      "item": "minecraft:netherite_helmet",
+      "level": 80.0,
+      "weight": 25
+    },
+    {
+      "item": "minecraft:netherite_chestplate",
+      "level": 80.0,
+      "weight": 25
+    },
+    {
+      "item": "minecraft:netherite_leggings",
+      "level": 80.0,
+      "weight": 25
+    },
+    {
+      "item": "minecraft:netherite_boots",
+      "level": 80.0,
+      "weight": 25
+    }
+  ],
+  "types": [
+    "minecraft:piglin",
+    "minecraft:husk",
+    "minecraft:zombie_villager",
+    "minecraft:zombified_piglin",
+    "minecraft:stray",
+    "minecraft:pillager",
+    "minecraft:zombie",
+    "minecraft:wither_skeleton",
+    "minecraft:evoker",
+    "minecraft:drowned",
+    "minecraft:vindicator",
+    "minecraft:piglin_brute",
+    "minecraft:illusioner",
+    "minecraft:skeleton"
+  ]
+}

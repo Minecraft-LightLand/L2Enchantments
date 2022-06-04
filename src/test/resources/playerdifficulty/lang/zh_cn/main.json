@@ -1,0 +1,6 @@
+{
+  "itemGroup.playerdifficulty": {
+	"material": "玩家难度"
+  },
+  "playerdifficulty.tooltip.difficulty": "当前玩家难度: %s"
+}
