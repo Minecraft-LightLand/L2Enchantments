@@ -75,7 +75,7 @@ public abstract class ResourceOrganizer {
     }
 
     public final String getResourceFolder(boolean main) {
-        return (main ? "./src/main/resources/" : "./playerdifficulty/src/test/resources/");
+        return (main ? "./src/main/resources/" : "l2enchantments/src/test/resources/");
     }
 
     protected String readFile(String path) {

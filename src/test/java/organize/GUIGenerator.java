@@ -22,7 +22,7 @@ import java.util.Map;
 public class GUIGenerator {
 
     public static void main(String[] args) throws Exception {
-        new GUIGenerator("playerdifficulty").gen();
+        new GUIGenerator("l2enchantments").gen();
     }
 
     private class Comp {

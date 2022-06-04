@@ -1,9 +1,9 @@
 {
   "required": true,
   "priority": 1000,
-  "package": "dev.xkmc.playerdifficulty.mixin",
+  "package": "dev.xkmc.l2enchantments.mixin",
   "compatibilityLevel": "JAVA_17",
-  "refmap": "playerdifficulty.refmap.json",
+  "refmap": "l2enchantments.refmap.json",
   "mixins": [
 	"ItemStackMixin"
   ],
