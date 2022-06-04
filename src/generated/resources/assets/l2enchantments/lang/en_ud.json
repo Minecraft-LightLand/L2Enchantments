@@ -1,13 +1,17 @@
 {
   "enchantment.l2enchantments.anti_magic": "\u0254\u0131b\u0250W \u0131\u0287u\u2C6F",
+  "enchantment.l2enchantments.digest": "\u0287s\u01DDb\u0131\u15E1",
+  "enchantment.l2enchantments.fast_leg": "b\u01DD\uA780 \u0287s\u0250\u2132",
   "enchantment.l2enchantments.fragile": "\u01DD\u05DF\u0131b\u0250\u0279\u2132",
   "enchantment.l2enchantments.heavy_swing": "bu\u0131\u028DS \u028E\u028C\u0250\u01DDH",
+  "enchantment.l2enchantments.invisible_armor": "\u0279o\u026F\u0279\u2C6F \u01DD\u05DFq\u0131s\u0131\u028CuI",
   "enchantment.l2enchantments.life_sync": "\u0254u\u028ES \u01DD\u025F\u0131\uA780",
   "enchantment.l2enchantments.light_swing": "bu\u0131\u028DS \u0287\u0265b\u0131\uA780",
   "enchantment.l2enchantments.reach": "\u0265\u0254\u0250\u01DD\u1D1A",
   "enchantment.l2enchantments.remnant": "\u0287u\u0250u\u026F\u01DD\u1D1A",
   "enchantment.l2enchantments.robust": "\u0287snqo\u1D1A",
   "enchantment.l2enchantments.soul_slash": "\u0265s\u0250\u05DFS \u05DFnoS",
+  "enchantment.l2enchantments.stable_body": "\u028Epo\u15FA \u01DD\u05DFq\u0250\u0287S",
   "enchantment.l2enchantments.stacking_damage": "\u01DDb\u0250\u026F\u0250\u15E1 bu\u0131\u029E\u0254\u0250\u0287S",
   "enchantment.l2enchantments.tracing_damage": "\u01DDb\u0250\u026F\u0250\u15E1 bu\u0131\u0254\u0250\u0279\u27D8",
   "enchantment.l2enchantments.wind_sweep": "d\u01DD\u01DD\u028DS pu\u0131M"

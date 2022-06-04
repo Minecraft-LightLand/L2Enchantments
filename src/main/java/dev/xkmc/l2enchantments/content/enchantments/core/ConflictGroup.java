@@ -4,5 +4,6 @@ public enum ConflictGroup {
 	NONE,
 	PENETRATION,
 	STACKING,
-	WEIGHT
+	WEIGHT,
+	APPEARANCE
 }

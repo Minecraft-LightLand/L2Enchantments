@@ -23,7 +23,9 @@ public class ModConfig {
 		public final ForgeConfigSpec.DoubleValue reachAddition;
 		public final ForgeConfigSpec.DoubleValue lifeSync;
 		public final ForgeConfigSpec.DoubleValue windSweepIncrement;
-
+		public final ForgeConfigSpec.DoubleValue stableBodyThreshold;
+		public final ForgeConfigSpec.DoubleValue stableBodyResistance;
+		public final ForgeConfigSpec.IntValue fastLegFoodThreshold;
 
 		Common(ForgeConfigSpec.Builder builder) {
 			antiMagicChance = builder.comment("Anti Magic chance")
@@ -65,6 +67,14 @@ public class ModConfig {
 
 			windSweepIncrement = builder.comment("Wind Sweep hit box increment")
 					.defineInRange("windSweep", 0.5, 0, 100);
+
+			stableBodyThreshold = builder.comment("Threshold reduction for stableBody per level")
+					.defineInRange("stableBodyThreshold", 0.2d, 0, 1);
+			stableBodyResistance = builder.comment("Knockback resistance for stableBody per level")
+					.defineInRange("stableBodyResistance", 0.2d, 0, 1);
+
+			fastLegFoodThreshold = builder.comment("Threshold for fast leg enchantment")
+					.defineInRange("fastLegFoodThreshold", 16, 0, 20);
 
 		}
 
