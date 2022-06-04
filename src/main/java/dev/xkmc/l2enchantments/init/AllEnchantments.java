@@ -27,6 +27,7 @@ public class AllEnchantments {
 	public static final RegistryEntry<Robust> ROBUST = reg("robust", Robust::new);
 	public static final RegistryEntry<Reach> REACH = reg("reach", Reach::new);
 	public static final RegistryEntry<LifeSync> LIFE_SYNC = reg("life_sync", LifeSync::new);
+	public static final RegistryEntry<WindSweep> WIND_SWEEP = reg("wind_sweep", WindSweep::new);
 
 	public static void register() {
 

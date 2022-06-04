@@ -128,13 +128,10 @@ dependencies {
     implementation fg.deobf('dev.xkmc.l2library:l2library:0.0.8')
     runtimeOnly fg.deobf('dev.xkmc.l2backpack:l2backpack:0.0.3')
 
-    implementation fg.deobf('curse.maven:scaling-health-248027:3788314')
-    implementation fg.deobf('curse.maven:silent-lib-242998:3708359')
     implementation fg.deobf('curse.maven:enchantment-descriptions-250419:3754812')
     implementation fg.deobf('curse.maven:bookshelf-228525:3753798')
 
     implementation fg.deobf('curse.maven:champions-307152:3783685')
-    compileOnly fg.deobf('dev.local.twilightforest:twilightforest:4.1.1028')
     implementation fg.deobf('curse.maven:placebo-283644:3781199')
     implementation fg.deobf('curse.maven:apotheosis-313970:3781524')
 

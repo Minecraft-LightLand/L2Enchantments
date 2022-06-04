@@ -18,9 +18,11 @@
 	"light_swing.desc": "提升攻击速度，降低攻击伤害和耐久，和重击冲突",
 	"heavy_swing": "重击",
 	"heavy_swing.desc": "降低攻击速度，提升攻击伤害和耐久，和轻薄冲突",
-	"reach": "触及",
+	"reach": "骄傲",
 	"reach.desc": "提升触及距离，对盔甲也有效",
 	"life_sync": "同心",
-	"life_sync.desc": "高生命时以生命修复物品，升级降低修复的生命值下限"
+	"life_sync.desc": "高生命时以生命修复物品，升级降低修复的生命值下限",
+	"wind_sweep": "碎风",
+	"wind_sweep.desc": "提高横扫范围"
   }
 }
