@@ -170,7 +170,7 @@ public class EnchantmentRecipeBuilder implements RecipeBuilder {
 			entry.addProperty("id", this.ench.getRegistryName().toString());
 			entry.addProperty("lvl", this.lvl);
 			list.add(entry);
-			tag.add("Enchantments", list);
+			tag.add("StoredEnchantments", list);
 			result.add("nbt", tag);
 
 			p_126167_.add("result", result);

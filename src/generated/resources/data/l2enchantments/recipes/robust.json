@@ -26,7 +26,7 @@
   "result": {
     "item": "minecraft:enchanted_book",
     "nbt": {
-      "Enchantments": [
+      "StoredEnchantments": [
         {
           "id": "l2enchantments:robust",
           "lvl": 1

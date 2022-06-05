@@ -18,7 +18,7 @@
   "enchantment.l2enchantments.reach": "Reach",
   "enchantment.l2enchantments.reach.desc": "Increase reach distance, effective on main hand tools and armors.",
   "enchantment.l2enchantments.remnant": "Remnant",
-  "enchantment.l2enchantments.remnant.desc": "Preserve item at 0 durability, but item lost attributes until fixed.",
+  "enchantment.l2enchantments.remnant.desc": "Preserve item at 0 durability, but item lost attributes until repaired.",
   "enchantment.l2enchantments.robust": "Robust",
   "enchantment.l2enchantments.robust.desc": "Reduce durability cost for high durability cost action.",
   "enchantment.l2enchantments.soul_slash": "Soul Slash",
@@ -28,7 +28,7 @@
   "enchantment.l2enchantments.stacking_damage": "Stacking Damage",
   "enchantment.l2enchantments.stacking_damage.desc": "When damage is reduced, next attack increase a portion of reduced damage. Conflicts with Tracing Damage.",
   "enchantment.l2enchantments.tracing_damage": "Tracing Damage",
-  "enchantment.l2enchantments.tracing_damage.desc": "when attacking the same target, increase damage exponentially. Conflicts with Stacking Damage.",
+  "enchantment.l2enchantments.tracing_damage.desc": "When attacking the same target, increase damage exponentially. Conflicts with Stacking Damage.",
   "enchantment.l2enchantments.wind_sweep": "Wind Sweep",
   "enchantment.l2enchantments.wind_sweep.desc": "Increase Sweeping Edge radius."
 }

@@ -29,7 +29,7 @@
   "result": {
     "item": "minecraft:enchanted_book",
     "nbt": {
-      "Enchantments": [
+      "StoredEnchantments": [
         {
           "id": "l2enchantments:invisible_armor",
           "lvl": 1
