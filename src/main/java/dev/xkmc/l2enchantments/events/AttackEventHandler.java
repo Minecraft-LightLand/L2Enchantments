@@ -1,7 +1,7 @@
 package dev.xkmc.l2enchantments.events;
 
 import dev.xkmc.l2enchantments.content.enchantments.sword.SwordEnchant;
-import dev.xkmc.l2enchantments.init.ModEntry;
+import dev.xkmc.l2enchantments.init.ModEntryPoint;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -61,7 +61,7 @@ public class AttackEventHandler {
 
 		private void pushHurt(LivingHurtEvent event) {
 			if (event.getEntityLiving() != target) {
-				ModEntry.LOGGER.error("incorrect sequence: previous cache is for " + target + ", but this is for " + event.getEntityLiving());
+				ModEntryPoint.LOGGER.error("incorrect sequence: previous cache is for " + target + ", but this is for " + event.getEntityLiving());
 				clear();
 				return;
 			}
@@ -83,7 +83,7 @@ public class AttackEventHandler {
 
 		private void pushDamage(LivingDamageEvent event) {
 			if (event.getEntityLiving() != target) {
-				ModEntry.LOGGER.error("incorrect sequence: previous cache is for " + target + ", but this is for " + event.getEntityLiving());
+				ModEntryPoint.LOGGER.error("incorrect sequence: previous cache is for " + target + ", but this is for " + event.getEntityLiving());
 				clear();
 				return;
 			}

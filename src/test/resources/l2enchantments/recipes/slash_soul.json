@@ -14,7 +14,7 @@
 	},
 	"1": {
 	  "type": "playerdifficulty:enchantment",
-	  "enchantment": "minecraft:smite",
+	  "enchantment": "minecraft:bane_of_arthropods",
 	  "minLevel": 3
 	},
 	"3": {
@@ -23,7 +23,7 @@
 	  "minLevel": 1
 	},
 	"C": {
-	  "item": "minecraft:copper_ingot"
+	  "item": "minecraft:soulsand"
 	}
   },
   "result": {

@@ -15,7 +15,7 @@ import net.minecraft.world.item.enchantment.EnchantmentCategory;
 
 import java.util.function.Supplier;
 
-import static dev.xkmc.l2enchantments.init.ModEntry.REGISTRATE;
+import static dev.xkmc.l2enchantments.init.ModEntryPoint.REGISTRATE;
 
 public class AllEnchantments {
 
@@ -26,12 +26,12 @@ public class AllEnchantments {
 	public static final RegistryEntry<Fragile> FRAGILE = reg("fragile", Fragile::new);
 	public static final RegistryEntry<LightSwing> LIGHT_SWING = reg("light_swing", LightSwing::new);
 	public static final RegistryEntry<HeavySwing> HEAVY_SWING = reg("heavy_swing", HeavySwing::new);
+	public static final RegistryEntry<WindSweep> WIND_SWEEP = reg("wind_sweep", WindSweep::new);
 
 	public static final RegistryEntry<Remnant> REMNANT = reg("remnant", Remnant::new);
 	public static final RegistryEntry<Robust> ROBUST = reg("robust", Robust::new);
 	public static final RegistryEntry<Reach> REACH = reg("reach", Reach::new);
 	public static final RegistryEntry<LifeSync> LIFE_SYNC = reg("life_sync", LifeSync::new);
-	public static final RegistryEntry<WindSweep> WIND_SWEEP = reg("wind_sweep", WindSweep::new);
 
 	public static final RegistryEntry<StableBody> STABLE_BODY = reg("stable_body", StableBody::new);
 	public static final RegistryEntry<FastLeg> FAST_LEG = reg("fast_leg", FastLeg::new);
