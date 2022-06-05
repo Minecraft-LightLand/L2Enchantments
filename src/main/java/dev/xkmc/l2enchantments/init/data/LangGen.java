@@ -8,11 +8,11 @@ public class LangGen {
 	public static void genLang(RegistrateLangProvider pvd) {
 		pvd.add(AllEnchantments.ANTI_MAGIC.get().getDescriptionId() + ".desc", "Have a chance to bypass protection and resistance. Conflicts with Soul Slash.");
 		pvd.add(AllEnchantments.FRAGILE.get().getDescriptionId() + ".desc", "Lower durability, more damage. Conflicts with Unbreaking and Robust.");
-		pvd.add(AllEnchantments.REMNANT.get().getDescriptionId() + ".desc", "Preserve item at 0 durability, but item lost attributes until fixed.");
+		pvd.add(AllEnchantments.REMNANT.get().getDescriptionId() + ".desc", "Preserve item at 0 durability, but item lost attributes until repaired.");
 		pvd.add(AllEnchantments.ROBUST.get().getDescriptionId() + ".desc", "Reduce durability cost for high durability cost action.");
 		pvd.add(AllEnchantments.SOUL_SLASH.get().getDescriptionId() + ".desc", "Has a chance to bypass armor. Conflicts with Anti Magic.");
 		pvd.add(AllEnchantments.STACK_DMG.get().getDescriptionId() + ".desc", "When damage is reduced, next attack increase a portion of reduced damage. Conflicts with Tracing Damage.");
-		pvd.add(AllEnchantments.TRACK_ENT.get().getDescriptionId() + ".desc", "when attacking the same target, increase damage exponentially. Conflicts with Stacking Damage.");
+		pvd.add(AllEnchantments.TRACK_ENT.get().getDescriptionId() + ".desc", "When attacking the same target, increase damage exponentially. Conflicts with Stacking Damage.");
 		pvd.add(AllEnchantments.LIGHT_SWING.get().getDescriptionId() + ".desc", "Increase attack speed at the cost of damage and durability. Conflicts with Heavy Swing.");
 		pvd.add(AllEnchantments.HEAVY_SWING.get().getDescriptionId() + ".desc", "Increase damage and durability at the cost of attack speed. Conflicts with Light Swing.");
 		pvd.add(AllEnchantments.REACH.get().getDescriptionId() + ".desc", "Increase reach distance, effective on main hand tools and armors.");
