@@ -35,7 +35,7 @@ public class ModConfig {
 					.defineInRange("soulSlashChance", 0.1, 0, 1);
 
 			stackingRatio = builder.comment("Stacking damage enchantment damage increment multiplier")
-					.defineInRange("stackingRatio", 0.1, 0, 1);
+					.defineInRange("stackingRatio", 0.4, 0, 10);
 
 			tracingRatio = builder.comment("Tracing damage enchantment increment base multiplier")
 					.defineInRange("tracingRatio", 0.02, 0, 1);

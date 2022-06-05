@@ -71,6 +71,7 @@ public class AttackEventHandler {
 						damage_1 += sword.getAdditionalDamage(ent.getValue(), event, this);
 					}
 				}
+				event.setAmount(damage_1);
 				for (Map.Entry<Enchantment, Integer> ent : EnchantmentHelper.getEnchantments(weapon).entrySet()) {
 					if (ent.getKey() instanceof SwordEnchant sword) {
 						sword.onTargetHurt(ent.getValue(), event, this);
