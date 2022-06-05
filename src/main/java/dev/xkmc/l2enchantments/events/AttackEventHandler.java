@@ -13,6 +13,7 @@ import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
+import net.minecraftforge.event.entity.player.CriticalHitEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -20,39 +21,45 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+@SuppressWarnings("unused")
 public class AttackEventHandler {
+
+	public enum Stage {
+		PLAYER_ATTACK, CRITICAL_HIT, HURT, ACTUALLY_HURT, DAMAGE;
+	}
 
 	public static class AttackCache {
 
-		private AttackEntityEvent player;
-		private LivingAttackEvent attack;
-		private LivingHurtEvent hurt;
-		private LivingDamageEvent damage;
+		public Stage stage;
+		public AttackEntityEvent player;
+		public CriticalHitEvent crit;
+		public LivingAttackEvent attack;
+		public LivingHurtEvent hurt;
+		public LivingDamageEvent damage;
 
 		public LivingEntity target;
 		public LivingEntity attacker;
 		public ItemStack weapon;
 
-		public float damage_1, damage_2;
-
-		private void clear() {
-			player = null;
-			target = null;
-			attack = null;
-			hurt = null;
-			damage = null;
-			attacker = null;
-			weapon = null;
-			damage_1 = damage_2 = 0;
-		}
+		public float strength = -1;
+		public float damage_3, damage_4, damage_5;
 
 		private void pushPlayer(AttackEntityEvent event) {
+			stage = Stage.PLAYER_ATTACK;
 			player = event;
+			strength = event.getPlayer().getAttackStrengthScale(1);
+		}
+
+		private void pushCrit(CriticalHitEvent event) {
+			stage = Stage.CRITICAL_HIT;
+			crit = event;
 		}
 
 		private void pushAttack(LivingAttackEvent event) {
+			stage = Stage.HURT;
 			attack = event;
 			target = attack.getEntityLiving();
+			damage_3 = event.getAmount();
 			if (weapon != null) {
 				for (Map.Entry<Enchantment, Integer> ent : EnchantmentHelper.getEnchantments(weapon).entrySet()) {
 					if (ent.getKey() instanceof SwordEnchant sword) {
@@ -63,15 +70,16 @@ public class AttackEventHandler {
 		}
 
 		private void pushHurt(LivingHurtEvent event) {
+			stage = Stage.ACTUALLY_HURT;
 			hurt = event;
-			damage_1 = event.getAmount();
+			damage_4 = event.getAmount();
 			if (weapon != null) {
 				for (Map.Entry<Enchantment, Integer> ent : EnchantmentHelper.getEnchantments(weapon).entrySet()) {
 					if (ent.getKey() instanceof SwordEnchant sword) {
-						damage_1 += sword.getAdditionalDamage(ent.getValue(), event, this);
+						damage_4 += sword.getAdditionalDamage(ent.getValue(), event, this);
 					}
 				}
-				event.setAmount(damage_1);
+				event.setAmount(damage_4);
 				for (Map.Entry<Enchantment, Integer> ent : EnchantmentHelper.getEnchantments(weapon).entrySet()) {
 					if (ent.getKey() instanceof SwordEnchant sword) {
 						sword.onTargetHurt(ent.getValue(), event, this);
@@ -81,8 +89,9 @@ public class AttackEventHandler {
 		}
 
 		private void pushDamage(LivingDamageEvent event) {
+			stage = Stage.DAMAGE;
 			damage = event;
-			damage_2 = event.getAmount();
+			damage_5 = event.getAmount();
 			if (weapon != null) {
 				for (Map.Entry<Enchantment, Integer> ent : EnchantmentHelper.getEnchantments(weapon).entrySet()) {
 					if (ent.getKey() instanceof SwordEnchant sword) {
@@ -103,7 +112,16 @@ public class AttackEventHandler {
 
 	@SubscribeEvent
 	public static void onPlayerAttack(AttackEntityEvent event) {
+		AttackCache cache = new AttackCache();
+		CACHE.put(event.getTarget().getUUID(), cache);
+		cache.pushPlayer(event);
+	}
 
+	@SubscribeEvent
+	public static void onCriticalHit(CriticalHitEvent event) {
+		AttackCache cache = new AttackCache();
+		CACHE.put(event.getTarget().getUUID(), cache);
+		cache.pushCrit(event);
 	}
 
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
@@ -111,8 +129,12 @@ public class AttackEventHandler {
 		if (CACHE.size() > 100) {
 			ModEntryPoint.LOGGER.error("attack cache too large: " + CACHE.size());
 		}
-		AttackCache cache = new AttackCache();
-		CACHE.put(event.getEntityLiving().getUUID(), cache);
+		UUID id = event.getEntityLiving().getUUID();
+		AttackCache cache = CACHE.get(id);
+		if (cache.stage.ordinal() >= Stage.HURT.ordinal()) {
+			cache = new AttackCache();
+			CACHE.put(id, cache);
+		}
 		cache.pushAttack(event);
 		DamageSource source = event.getSource();
 		if (source.getEntity() instanceof LivingEntity entity) { // direct damage only
