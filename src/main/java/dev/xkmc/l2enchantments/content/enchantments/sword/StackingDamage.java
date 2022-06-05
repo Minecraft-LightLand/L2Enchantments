@@ -27,7 +27,7 @@ public class StackingDamage extends SwordEnchant {
 	@Override
 	public void onTargetDamage(int lv, LivingDamageEvent event, AttackEventHandler.AttackCache attackCache) {
 		double old = attackCache.weapon.getOrCreateTag().getDouble(KEY);
-		double current = (attackCache.damage_1 - attackCache.damage_2) * PERCENT_PER_LEVEL.get();
+		double current = (attackCache.damage_1 - attackCache.damage_2) * PERCENT_PER_LEVEL.get() * lv;
 		if (current > old)
 			attackCache.weapon.getOrCreateTag().putDouble(KEY, current);
 	}

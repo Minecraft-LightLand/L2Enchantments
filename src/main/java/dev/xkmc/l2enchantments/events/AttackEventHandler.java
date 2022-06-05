@@ -7,6 +7,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -15,7 +16,9 @@ import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
+import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class AttackEventHandler {
 
@@ -60,11 +63,6 @@ public class AttackEventHandler {
 		}
 
 		private void pushHurt(LivingHurtEvent event) {
-			if (event.getEntityLiving() != target) {
-				ModEntryPoint.LOGGER.error("incorrect sequence: previous cache is for " + target + ", but this is for " + event.getEntityLiving());
-				clear();
-				return;
-			}
 			hurt = event;
 			damage_1 = event.getAmount();
 			if (weapon != null) {
@@ -82,11 +80,6 @@ public class AttackEventHandler {
 		}
 
 		private void pushDamage(LivingDamageEvent event) {
-			if (event.getEntityLiving() != target) {
-				ModEntryPoint.LOGGER.error("incorrect sequence: previous cache is for " + target + ", but this is for " + event.getEntityLiving());
-				clear();
-				return;
-			}
 			damage = event;
 			damage_2 = event.getAmount();
 			if (weapon != null) {
@@ -105,7 +98,7 @@ public class AttackEventHandler {
 
 	}
 
-	private static final AttackCache cache = new AttackCache();
+	private static final HashMap<UUID, AttackCache> CACHE = new HashMap<>();
 
 	@SubscribeEvent
 	public static void onPlayerAttack(AttackEntityEvent event) {
@@ -114,6 +107,8 @@ public class AttackEventHandler {
 
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public static void onAttackPre(LivingAttackEvent event) {
+		AttackCache cache = new AttackCache();
+		CACHE.put(event.getEntityLiving().getUUID(), cache);
 		cache.pushAttack(event);
 		DamageSource source = event.getSource();
 		if (source.getEntity() instanceof LivingEntity entity) { // direct damage only
@@ -124,17 +119,32 @@ public class AttackEventHandler {
 
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public static void onActuallyHurtPre(LivingHurtEvent event) {
-		cache.pushHurt(event);
+		AttackCache cache = CACHE.get(event.getEntityLiving().getUUID());
+		if (cache != null)
+			cache.pushHurt(event);
+		else {
+			ModEntryPoint.LOGGER.error("incorrect sequence at damage: " + event.getEntityLiving());
+		}
 	}
 
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public static void onDamagePre(LivingDamageEvent event) {
-		cache.pushDamage(event);
+		AttackCache cache = CACHE.get(event.getEntityLiving().getUUID());
+		if (cache != null)
+			cache.pushDamage(event);
+		else {
+			ModEntryPoint.LOGGER.error("incorrect sequence at damage: " + event.getEntityLiving());
+		}
 	}
 
 	@SubscribeEvent
 	public static void onDeath(LivingDeathEvent event) {
 
+	}
+
+	@SubscribeEvent
+	public static void onServerTick(TickEvent.ServerTickEvent event) {
+		CACHE.clear();
 	}
 
 }
