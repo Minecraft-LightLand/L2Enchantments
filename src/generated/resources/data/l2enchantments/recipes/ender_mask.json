@@ -1,0 +1,43 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "C1C",
+    "BAB",
+    "D2D"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:book"
+    },
+    "B": {
+      "item": "minecraft:carved_pumpkin"
+    },
+    "C": {
+      "item": "minecraft:spyglass"
+    },
+    "D": {
+      "item": "minecraft:ender_eye"
+    },
+    "1": {
+      "enchantment": "minecraft:piercing",
+      "minLevel": 1,
+      "type": "l2enchantments:enchantment"
+    },
+    "2": {
+      "enchantment": "minecraft:vanishing_curse",
+      "minLevel": 1,
+      "type": "l2enchantments:enchantment"
+    }
+  },
+  "result": {
+    "item": "minecraft:enchanted_book",
+    "nbt": {
+      "StoredEnchantments": [
+        {
+          "id": "l2enchantments:ender_mask",
+          "lvl": 1
+        }
+      ]
+    }
+  }
+}

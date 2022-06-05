@@ -12,6 +12,7 @@ public class ToolEnchant extends BaseEnchantment {
 	public static final EnchConfig REMNANT = new EnchConfig(Rarity.VERY_RARE, EnchantmentCategory.BREAKABLE, ConflictGroup.NONE, Type.ORANGE, 1);
 	public static final EnchConfig ROBUST = new EnchConfig(Rarity.VERY_RARE, EnchantmentCategory.BREAKABLE, ConflictGroup.NONE, Type.ORANGE, 1);
 	public static final EnchConfig REACH = new EnchConfig(Rarity.VERY_RARE, EnchantmentCategory.BREAKABLE, ConflictGroup.NONE, Type.ORANGE, 1);
+
 	public static final EnchConfig LIFE_SYNC = new EnchConfig(Rarity.VERY_RARE, EnchantmentCategory.BREAKABLE, ConflictGroup.NONE, Type.PURPLE, 5);
 
 	protected ToolEnchant(EnchConfig config) {

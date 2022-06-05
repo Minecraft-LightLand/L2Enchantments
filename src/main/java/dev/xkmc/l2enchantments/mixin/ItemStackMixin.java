@@ -10,8 +10,10 @@ import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -120,6 +122,22 @@ public abstract class ItemStackMixin {
 		}
 		return box;
 
+	}
+
+	public boolean makesPiglinsNeutral(LivingEntity wearer) {
+		ItemStack self = (ItemStack) (Object) this;
+		if (self.isEnchanted() && EnchantmentHelper.getItemEnchantmentLevel(AllEnchantments.GILDED.get(), self) > 0) {
+			return true;
+		}
+		return self.getItem().makesPiglinsNeutral(self, wearer);
+	}
+
+	public boolean isEnderMask(Player player, EnderMan endermanEntity) {
+		ItemStack self = (ItemStack) (Object) this;
+		if (self.isEnchanted() && EnchantmentHelper.getItemEnchantmentLevel(AllEnchantments.ENDER_MASK.get(), self) > 0) {
+			return true;
+		}
+		return self.getItem().isEnderMask(self, player, endermanEntity);
 	}
 
 

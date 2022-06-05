@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "C1C",
+    "BAB",
+    "C2C"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:book"
+    },
+    "B": {
+      "item": "minecraft:sponge"
+    },
+    "C": {
+      "item": "minecraft:slime_block"
+    },
+    "1": {
+      "enchantment": "minecraft:feather_falling",
+      "minLevel": 3,
+      "type": "l2enchantments:enchantment"
+    },
+    "2": {
+      "enchantment": "minecraft:protection",
+      "minLevel": 3,
+      "type": "l2enchantments:enchantment"
+    }
+  },
+  "result": {
+    "item": "minecraft:enchanted_book",
+    "nbt": {
+      "StoredEnchantments": [
+        {
+          "id": "l2enchantments:buffer",
+          "lvl": 1
+        }
+      ]
+    }
+  }
+}

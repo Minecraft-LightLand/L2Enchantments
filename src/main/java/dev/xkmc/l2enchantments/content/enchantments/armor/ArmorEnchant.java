@@ -12,7 +12,12 @@ public class ArmorEnchant extends BaseEnchantment {
 	public static final EnchConfig STABLE_BODY = new EnchConfig(Rarity.VERY_RARE, EnchantmentCategory.ARMOR_CHEST, ConflictGroup.NONE, Type.ORANGE, 5);
 	public static final EnchConfig FAST_LEG = new EnchConfig(Rarity.VERY_RARE, EnchantmentCategory.ARMOR_LEGS, ConflictGroup.NONE, Type.ORANGE, 5);
 	public static final EnchConfig INVISIBLE_ARMOR = new EnchConfig(Rarity.VERY_RARE, EnchantmentCategory.ARMOR, ConflictGroup.APPEARANCE, Type.ORANGE, 1);
+
 	public static final EnchConfig DIGEST = new EnchConfig(Rarity.VERY_RARE, EnchantmentCategory.ARMOR_CHEST, ConflictGroup.NONE, Type.PURPLE, 1);
+
+	public static final EnchConfig ENDER_MASK = new EnchConfig(Rarity.VERY_RARE, EnchantmentCategory.ARMOR_HEAD, ConflictGroup.NONE, Type.WHITE, 1);
+	public static final EnchConfig GILDED = new EnchConfig(Rarity.VERY_RARE, EnchantmentCategory.ARMOR, ConflictGroup.NONE, Type.WHITE, 1);
+	public static final EnchConfig BUFFER = new EnchConfig(Rarity.VERY_RARE, EnchantmentCategory.ARMOR_HEAD, ConflictGroup.NONE, Type.WHITE, 4);
 
 	private static final EquipmentSlot[] ARMOR_SLOTS = new EquipmentSlot[]{EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET};
 

@@ -129,6 +129,28 @@ public class RecipeGen {
 				.define('2', new EnchantmentIngredient(Enchantments.VANISHING_CURSE, 1))
 				.save(pvd);
 
+		unlock(pvd, new EnchantmentRecipeBuilder(AllEnchantments.ENDER_MASK.get(), 1)::unlockedBy, Items.ENCHANTED_BOOK)
+				.pattern("C1C").pattern("BAB").pattern("D2D")
+				.define('A', Items.BOOK).define('B', Items.CARVED_PUMPKIN)
+				.define('C', Items.SPYGLASS).define('D', Items.ENDER_EYE)
+				.define('1', new EnchantmentIngredient(Enchantments.PIERCING, 1))
+				.define('2', new EnchantmentIngredient(Enchantments.VANISHING_CURSE, 1))
+				.save(pvd);
+
+		unlock(pvd, new EnchantmentRecipeBuilder(AllEnchantments.GILDED.get(), 1)::unlockedBy, Items.ENCHANTED_BOOK)
+				.pattern("C1C").pattern("BAB").pattern("C2C")
+				.define('A', Items.BOOK).define('B', Items.MAGMA_CREAM).define('C', Items.GOLD_INGOT)
+				.define('1', new EnchantmentIngredient(Enchantments.MENDING, 1))
+				.define('2', new EnchantmentIngredient(Enchantments.BINDING_CURSE, 1))
+				.save(pvd);
+
+		unlock(pvd, new EnchantmentRecipeBuilder(AllEnchantments.BUFFER.get(), 1)::unlockedBy, Items.ENCHANTED_BOOK)
+				.pattern("C1C").pattern("BAB").pattern("C2C")
+				.define('A', Items.BOOK).define('B', Items.SPONGE).define('C', Items.SLIME_BLOCK)
+				.define('1', new EnchantmentIngredient(Enchantments.FALL_PROTECTION, 3))
+				.define('2', new EnchantmentIngredient(Enchantments.ALL_DAMAGE_PROTECTION, 3))
+				.save(pvd);
+
 	}
 
 	private static <T> T unlock(RegistrateRecipeProvider pvd, BiFunction<String, InventoryChangeTrigger.TriggerInstance, T> func, Item item) {

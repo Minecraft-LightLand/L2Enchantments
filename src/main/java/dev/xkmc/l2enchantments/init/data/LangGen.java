@@ -22,6 +22,9 @@ public class LangGen {
 		pvd.add(AllEnchantments.FAST_LEG.get().getDescriptionId() + ".desc", "Give speed effect at high food level.");
 		pvd.add(AllEnchantments.INVISIBLE_ARMOR.get().getDescriptionId() + ".desc", "Armor invisible to mobs and players.");
 		pvd.add(AllEnchantments.DIGEST.get().getDescriptionId() + ".desc", "When saturation is low, cost 2 food level to restore 1 saturation level.");
+		pvd.add(AllEnchantments.ENDER_MASK.get().getDescriptionId() + ".desc", "You can look at enderman directly without triggering them.");
+		pvd.add(AllEnchantments.GILDED.get().getDescriptionId() + ".desc", "Make piglins neutral.");
+		pvd.add(AllEnchantments.BUFFER.get().getDescriptionId() + ".desc", "Protect player from damages caused by physical impact on head, such as elytra momentum, falling blocks, etc.");
 	}
 
 }

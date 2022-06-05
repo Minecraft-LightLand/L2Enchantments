@@ -1,9 +1,6 @@
 package dev.xkmc.l2enchantments.init;
 
-import dev.xkmc.l2enchantments.content.enchantments.armor.Digest;
-import dev.xkmc.l2enchantments.content.enchantments.armor.FastLeg;
-import dev.xkmc.l2enchantments.content.enchantments.armor.InvisibleArmor;
-import dev.xkmc.l2enchantments.content.enchantments.armor.StableBody;
+import dev.xkmc.l2enchantments.content.enchantments.armor.*;
 import dev.xkmc.l2enchantments.content.enchantments.core.BaseEnchantment;
 import dev.xkmc.l2enchantments.content.enchantments.sword.*;
 import dev.xkmc.l2enchantments.content.enchantments.tool.LifeSync;
@@ -37,6 +34,9 @@ public class AllEnchantments {
 	public static final RegistryEntry<FastLeg> FAST_LEG = reg("fast_leg", FastLeg::new);
 	public static final RegistryEntry<InvisibleArmor> INVISIBLE_ARMOR = reg("invisible_armor", InvisibleArmor::new);
 	public static final RegistryEntry<Digest> DIGEST = reg("digest", Digest::new);
+	public static final RegistryEntry<EnderMask> ENDER_MASK = reg("ender_mask", EnderMask::new);
+	public static final RegistryEntry<Gilded> GILDED = reg("gilded", Gilded::new);
+	public static final RegistryEntry<Buffer> BUFFER = reg("buffer", Buffer::new);
 
 	public static void register() {
 

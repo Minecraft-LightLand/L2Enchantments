@@ -31,6 +31,12 @@
 	"invisible_armor": "透明",
 	"invisible_armor.desc": "盔甲不可视，隐身状态下降低怪物探测范围",
 	"digest": "消化",
-	"digest.desc": "低饱和时，消耗大量饱食度恢复少量饱和"
+	"digest.desc": "低饱和时，消耗大量饱食度恢复少量饱和",
+	"ender_mask": "末影帷幕",
+	"ender_mask.desc": "直视末影人时不激怒对方",
+	"gilded": "金光闪闪",
+	"gilded.desc": "让猪灵保持中立",
+	"buffer": "缓冲",
+	"buffer.desc": "减少头部冲击伤害，比如鞘翅动能，坠落的铁砧"
   }
 }

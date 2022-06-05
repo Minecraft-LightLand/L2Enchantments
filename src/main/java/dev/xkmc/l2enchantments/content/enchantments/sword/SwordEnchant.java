@@ -23,11 +23,12 @@ public class SwordEnchant extends BaseEnchantment {
 	public static final EnchConfig SOUL_SLASH = new EnchConfig(Rarity.VERY_RARE, EnchantmentCategory.WEAPON, ConflictGroup.PENETRATION, Type.ORANGE, 3);
 	public static final EnchConfig STACK_DMG = new EnchConfig(Rarity.VERY_RARE, EnchantmentCategory.WEAPON, ConflictGroup.STACKING, Type.ORANGE, 3);
 	public static final EnchConfig TRACK_ENT = new EnchConfig(Rarity.VERY_RARE, EnchantmentCategory.WEAPON, ConflictGroup.STACKING, Type.ORANGE, 3);
-	public static final EnchConfig FRAGILE = new EnchConfig(Rarity.VERY_RARE, EnchantmentCategory.WEAPON, ConflictGroup.NONE, Type.PURPLE, 5,
-			() -> Enchantments.UNBREAKING, AllEnchantments.ROBUST::get);
+	public static final EnchConfig WIND_SWEEP = new EnchConfig(Rarity.VERY_RARE, EnchantmentCategory.WEAPON, ConflictGroup.WEIGHT, Type.ORANGE, 3);
+
 	public static final EnchConfig LIGHT_SWING = new EnchConfig(Rarity.VERY_RARE, EnchantmentCategory.WEAPON, ConflictGroup.WEIGHT, Type.PURPLE, 5);
 	public static final EnchConfig HEAVY_SWING = new EnchConfig(Rarity.VERY_RARE, EnchantmentCategory.WEAPON, ConflictGroup.WEIGHT, Type.PURPLE, 5);
-	public static final EnchConfig WIND_SWEEP = new EnchConfig(Rarity.VERY_RARE, EnchantmentCategory.WEAPON, ConflictGroup.WEIGHT, Type.ORANGE, 3);
+	public static final EnchConfig FRAGILE = new EnchConfig(Rarity.VERY_RARE, EnchantmentCategory.WEAPON, ConflictGroup.NONE, Type.PURPLE, 5,
+			() -> Enchantments.UNBREAKING, AllEnchantments.ROBUST::get);
 
 
 	public static final Random RANDOM = new Random();
