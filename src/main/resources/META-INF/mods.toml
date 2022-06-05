@@ -4,10 +4,10 @@ license="All rights reserved"
 [[mods]]
 modId="l2enchantments"
 version="${file.jarVersion}" #mandatory
-displayName="Player Difficulty" #mandatory
+displayName="L2 Enchantments" #mandatory
 logoFile="l2enchantments.png" #optional
-credits="Thanks for this example mod goes to Java" #optional
-authors="Love, Cheese and small house plants" #optional
+credits="LightLand Team" #optional
+authors="lcy0x1" #optional
 description='''
 '''
 [[dependencies.l2enchantments]]

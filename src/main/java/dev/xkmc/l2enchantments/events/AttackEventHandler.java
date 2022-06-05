@@ -71,6 +71,7 @@ public class AttackEventHandler {
 						damage_1 += sword.getAdditionalDamage(ent.getValue(), event, this);
 					}
 				}
+				event.setAmount(damage_1);
 				for (Map.Entry<Enchantment, Integer> ent : EnchantmentHelper.getEnchantments(weapon).entrySet()) {
 					if (ent.getKey() instanceof SwordEnchant sword) {
 						sword.onTargetHurt(ent.getValue(), event, this);
@@ -107,6 +108,9 @@ public class AttackEventHandler {
 
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public static void onAttackPre(LivingAttackEvent event) {
+		if (CACHE.size() > 100) {
+			ModEntryPoint.LOGGER.error("attack cache too large: " + CACHE.size());
+		}
 		AttackCache cache = new AttackCache();
 		CACHE.put(event.getEntityLiving().getUUID(), cache);
 		cache.pushAttack(event);
@@ -123,7 +127,7 @@ public class AttackEventHandler {
 		if (cache != null)
 			cache.pushHurt(event);
 		else {
-			ModEntryPoint.LOGGER.error("incorrect sequence at damage: " + event.getEntityLiving());
+			ModEntryPoint.LOGGER.error("incorrect sequence at hurt: " + event.getEntityLiving());
 		}
 	}
 

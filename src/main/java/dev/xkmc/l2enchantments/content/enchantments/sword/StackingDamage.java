@@ -18,10 +18,10 @@ public class StackingDamage extends SwordEnchant {
 	}
 
 	@Override
-	public int getAdditionalDamage(int lv, LivingHurtEvent event, AttackEventHandler.AttackCache attackCache) {
+	public double getAdditionalDamage(int lv, LivingHurtEvent event, AttackEventHandler.AttackCache attackCache) {
 		double old = attackCache.weapon.getOrCreateTag().getDouble(KEY);
 		attackCache.weapon.getOrCreateTag().putDouble(KEY, 0);
-		return (int) Math.floor(old);
+		return old;
 	}
 
 	@Override

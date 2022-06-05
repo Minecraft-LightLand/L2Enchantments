@@ -17,8 +17,8 @@ public class Fragile extends SwordEnchant implements DurabilityEnchantment {
 	}
 
 	@Override
-	public int getAdditionalDamage(int lv, LivingHurtEvent event, AttackEventHandler.AttackCache attackCache) {
-		return (int) (event.getAmount() * PERCENT_PER_LEVEL.get() * lv);
+	public double getAdditionalDamage(int lv, LivingHurtEvent event, AttackEventHandler.AttackCache attackCache) {
+		return event.getAmount() * PERCENT_PER_LEVEL.get() * lv;
 	}
 
 	@Override
