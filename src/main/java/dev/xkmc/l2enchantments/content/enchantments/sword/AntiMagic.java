@@ -1,7 +1,8 @@
 package dev.xkmc.l2enchantments.content.enchantments.sword;
 
-import dev.xkmc.l2enchantments.events.AttackEventHandler;
+import dev.xkmc.l2enchantments.events.AttackSeriesListener;
 import dev.xkmc.l2enchantments.init.data.ModConfig;
+import dev.xkmc.l2library.init.events.AttackEventHandler;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 
 import java.util.function.Supplier;

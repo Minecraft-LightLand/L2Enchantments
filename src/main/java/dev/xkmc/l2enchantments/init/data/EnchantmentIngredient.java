@@ -2,7 +2,7 @@ package dev.xkmc.l2enchantments.init.data;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import dev.xkmc.l2enchantments.init.ModEntryPoint;
+import dev.xkmc.l2enchantments.init.L2Enchantments;
 import dev.xkmc.l2library.serial.SerialClass;
 import dev.xkmc.l2library.serial.codec.JsonCodec;
 import dev.xkmc.l2library.serial.codec.PacketCodec;
@@ -55,7 +55,7 @@ public class EnchantmentIngredient extends AbstractIngredient {
 
 	public JsonElement toJson() {
 		JsonObject obj = JsonCodec.toJson(this).getAsJsonObject();
-		obj.addProperty("type", ModEntryPoint.MODID + ":enchantment");
+		obj.addProperty("type", L2Enchantments.MODID + ":enchantment");
 		return obj;
 	}
 

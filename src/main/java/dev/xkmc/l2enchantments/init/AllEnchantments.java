@@ -15,7 +15,7 @@ import net.minecraft.world.item.enchantment.EnchantmentCategory;
 
 import java.util.function.Supplier;
 
-import static dev.xkmc.l2enchantments.init.ModEntryPoint.REGISTRATE;
+import static dev.xkmc.l2enchantments.init.L2Enchantments.REGISTRATE;
 
 public class AllEnchantments {
 

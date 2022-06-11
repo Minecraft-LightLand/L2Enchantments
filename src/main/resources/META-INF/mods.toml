@@ -25,6 +25,6 @@ description='''
 [[dependencies.l2enchantments]]
     modId="l2library"
     mandatory=true
-    versionRange="[0.0.8,)"
+    versionRange="[0.0.9,)"
     ordering="AFTER"
     side="BOTH"

@@ -1,12 +1,13 @@
 package dev.xkmc.l2enchantments.init;
 
-import dev.xkmc.l2enchantments.init.data.EnchantmentIngredient;
-import dev.xkmc.l2enchantments.events.AttackEventHandler;
+import dev.xkmc.l2enchantments.events.AttackSeriesListener;
 import dev.xkmc.l2enchantments.events.ItemStackEventHandler;
+import dev.xkmc.l2enchantments.init.data.EnchantmentIngredient;
 import dev.xkmc.l2enchantments.init.data.LangGen;
 import dev.xkmc.l2enchantments.init.data.ModConfig;
 import dev.xkmc.l2enchantments.init.data.RecipeGen;
 import dev.xkmc.l2library.base.LcyRegistrate;
+import dev.xkmc.l2library.init.events.AttackEventHandler;
 import dev.xkmc.l2library.repack.registrate.providers.ProviderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -25,7 +26,7 @@ import org.apache.logging.log4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("l2enchantments")
-public class ModEntryPoint {
+public class L2Enchantments {
 
 	public static final String MODID = "l2enchantments";
 	public static final Logger LOGGER = LogManager.getLogger();
@@ -39,16 +40,16 @@ public class ModEntryPoint {
 	}
 
 	private static void registerForgeEvents() {
-		MinecraftForge.EVENT_BUS.register(AttackEventHandler.class);
+		AttackEventHandler.LISTENERS.add(new AttackSeriesListener());
 		MinecraftForge.EVENT_BUS.register(ItemStackEventHandler.class);
 	}
 
 	private static void registerModBusEvents(IEventBus bus) {
-		bus.addListener(ModEntryPoint::setup);
+		bus.addListener(L2Enchantments::setup);
 		bus.addListener(ModClient::clientSetup);
 	}
 
-	public ModEntryPoint() {
+	public L2Enchantments() {
 		FMLJavaModLoadingContext ctx = FMLJavaModLoadingContext.get();
 		IEventBus bus = ctx.getModEventBus();
 		registerModBusEvents(bus);

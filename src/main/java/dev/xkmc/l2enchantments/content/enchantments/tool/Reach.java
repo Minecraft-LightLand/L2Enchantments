@@ -14,7 +14,8 @@ import java.util.function.Supplier;
 
 public class Reach extends ToolEnchant implements AttributeEnchantment {
 
-	public static final UUID ID = MathHelper.getUUIDfromString("reach");
+	public static final UUID ID_ATK = MathHelper.getUUIDfromString("reach.attack");
+	public static final UUID ID_RCH = MathHelper.getUUIDfromString("reach.reach");
 
 	public static final Supplier<Double> VALUE = ModConfig.COMMON.reachAddition::get;
 
@@ -32,7 +33,8 @@ public class Reach extends ToolEnchant implements AttributeEnchantment {
 		if (event.getSlotType() != EquipmentSlot.MAINHAND) {
 			return;
 		}
-		event.addModifier(ForgeMod.ATTACK_RANGE.get(), new AttributeModifier(ID, "reach", VALUE.get() * lv, AttributeModifier.Operation.ADDITION));
+		event.addModifier(ForgeMod.ATTACK_RANGE.get(), new AttributeModifier(ID_ATK, "reach", VALUE.get() * lv, AttributeModifier.Operation.ADDITION));
+		event.addModifier(ForgeMod.REACH_DISTANCE.get(), new AttributeModifier(ID_RCH, "reach", VALUE.get() * lv, AttributeModifier.Operation.ADDITION));
 	}
 
 }
