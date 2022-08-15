@@ -1,7 +1,8 @@
 package dev.xkmc.l2enchantments.mixin;
 
-import com.google.common.collect.HashMultimap;
+import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import dev.xkmc.l2enchantments.content.enchantments.core.BaseEnchantment;
 import dev.xkmc.l2enchantments.content.enchantments.core.DurabilityEnchantment;
 import dev.xkmc.l2enchantments.content.enchantments.core.TickingEnchantment;
 import dev.xkmc.l2enchantments.init.AllEnchantments;
@@ -45,61 +46,69 @@ public abstract class ItemStackMixin {
 	public abstract int getMaxDamage();
 
 	@Inject(at = @At("HEAD"), method = "hurt", cancellable = true)
-	public void hurt(int damage, Random random, ServerPlayer player, CallbackInfoReturnable<Boolean> cir) {
-		if (!isDamageableItem()) {
-			cir.setReturnValue(false);
-			return;
+	public void l2enchantment_rewriteDamageCalculation(int damage, Random random, ServerPlayer player, CallbackInfoReturnable<Boolean> cir) {
+		if (isDamageableItem()) {
+			return; // skip rewrite
+		}
+		ItemStack self = (ItemStack) (Object) this;
+		if (!self.isEnchanted()) {
+			return; // skip rewrite and enchantment iteration
+		}
+		Map<Enchantment, Integer> enchantments = EnchantmentHelper.getEnchantments(self);
+		boolean containsMyEnchantments = false;
+		for (Map.Entry<Enchantment, Integer> ent : enchantments.entrySet()) {
+			if (ent.getKey() instanceof BaseEnchantment) {
+				containsMyEnchantments = true;
+				break;
+			}
+		}
+		if (!containsMyEnchantments) {
+			return; // skip rewrite to preserve other mixin functionality
 		}
 
-		ItemStack self = (ItemStack) (Object) this;
-
+		// from this point, this method rewrites ItemStack::hurt
 		if (damage > 0) {
 			int lv = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.UNBREAKING, self);
 			double pre = damage / (1d + lv);
-			for (Map.Entry<Enchantment, Integer> ent : EnchantmentHelper.getEnchantments(self).entrySet()) {
+			for (Map.Entry<Enchantment, Integer> ent : enchantments.entrySet()) {
 				if (ent.getKey() instanceof DurabilityEnchantment dur) {
 					pre *= dur.durabilityFactor(ent.getValue(), damage);
 				}
 			}
 			damage = (int) Math.floor(pre) + (random.nextFloat() < pre - Math.floor(pre) ? 1 : 0);
 		}
-
 		if (damage >= 1 && getDamageValue() + damage >= getMaxDamage()) {
-			if (EnchantmentHelper.getItemEnchantmentLevel(AllEnchantments.REMNANT.get(), self) > 0) {//TODO
+			if (EnchantmentHelper.getItemEnchantmentLevel(AllEnchantments.REMNANT.get(), self) > 0) {
 				setDamageValue(getMaxDamage());
 				cir.setReturnValue(false);
 				return;
 			}
 		}
-
 		if (damage <= 0) {
 			cir.setReturnValue(false);
 		}
-
 		if (player != null && damage != 0) {
 			CriteriaTriggers.ITEM_DURABILITY_CHANGED.trigger(player, self, getDamageValue() + damage);
 		}
-
 		int l = getDamageValue() + damage;
 		setDamageValue(l);
 		cir.setReturnValue(l >= getMaxDamage());
-
 	}
 
 	@Inject(at = @At("HEAD"), method = "getAttributeModifiers", cancellable = true)
-	public void getDefaultModifiers(EquipmentSlot slot, CallbackInfoReturnable<Multimap<Attribute, AttributeModifier>> cir) {
+	public void l2enchantments_returnEmptyMultiMapForZeroDurability(EquipmentSlot slot, CallbackInfoReturnable<Multimap<Attribute, AttributeModifier>> cir) {
 		ItemStack self = (ItemStack) (Object) this;
 		if (self.isEnchanted()) {
-			if (EnchantmentHelper.getItemEnchantmentLevel(AllEnchantments.REMNANT.get(), self) > 0) {//TODO
+			if (EnchantmentHelper.getItemEnchantmentLevel(AllEnchantments.REMNANT.get(), self) > 0) {
 				if (self.getDamageValue() >= self.getMaxDamage()) {
-					cir.setReturnValue(HashMultimap.create());
+					cir.setReturnValue(ImmutableMultimap.of());
 				}
 			}
 		}
 	}
 
 	@Inject(at = @At("HEAD"), method = "inventoryTick")
-	public void onInventoryTick(Level level, Entity entity, int slot, boolean selected, CallbackInfo ci) {
+	public void l2enchantments_tickTickingEnchantments(Level level, Entity entity, int slot, boolean selected, CallbackInfo ci) {
 		ItemStack self = (ItemStack) (Object) this;
 		if (self.isEnchanted()) {
 			for (Map.Entry<Enchantment, Integer> ent : EnchantmentHelper.getEnchantments(self).entrySet()) {
