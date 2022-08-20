@@ -6,7 +6,7 @@ import dev.xkmc.l2enchantments.init.data.EnchantmentIngredient;
 import dev.xkmc.l2enchantments.init.data.LangGen;
 import dev.xkmc.l2enchantments.init.data.ModConfig;
 import dev.xkmc.l2enchantments.init.data.RecipeGen;
-import dev.xkmc.l2library.base.LcyRegistrate;
+import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.init.events.AttackEventHandler;
 import dev.xkmc.l2library.repack.registrate.providers.ProviderType;
 import net.minecraft.resources.ResourceLocation;
@@ -30,7 +30,7 @@ public class L2Enchantments {
 
 	public static final String MODID = "l2enchantments";
 	public static final Logger LOGGER = LogManager.getLogger();
-	public static final LcyRegistrate REGISTRATE = new LcyRegistrate(MODID);
+	public static final L2Registrate REGISTRATE = new L2Registrate(MODID);
 
 	private static void registerRegistrates(IEventBus bus) {
 		AllEnchantments.register();
